@@ -25,7 +25,7 @@ export interface GameState {
   boardItemRefs: Record<string, string>;
 }
 
-const STORAGE_KEY = 'sql-mystery-game-state';
+const STORAGE_KEY = 'sql-side-quest-game-state';
 
 function createInitialState(): GameState {
   return {

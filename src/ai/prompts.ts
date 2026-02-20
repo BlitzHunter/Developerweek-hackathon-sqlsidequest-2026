@@ -169,7 +169,7 @@ export function buildHintPrompt(
       ? 'Give a moderate hint — suggest which tables/columns to look at and what kind of SQL clause to use.'
       : 'Give a strong hint — describe the query structure they need, but let them write the exact SQL.';
 
-  return `You are a grizzled detective partner in an interactive SQL mystery game.
+  return `You are a grizzled detective partner in an interactive SQL side quest game.
 You speak in a noir detective style — brief, atmospheric, with dry wit.
 Keep responses to 1-3 sentences maximum.
 

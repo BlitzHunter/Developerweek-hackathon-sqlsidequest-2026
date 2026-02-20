@@ -1,5 +1,5 @@
 /**
- * App.tsx — Root component for SQL Mystery
+ * App.tsx — Root component for SQL Side Quest
  */
 
 import * as React from 'react';

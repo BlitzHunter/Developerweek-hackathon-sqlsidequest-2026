@@ -26,7 +26,7 @@ export const CaseBriefing: React.FC<CaseBriefingProps> = ({
 
   return (
     <div className="case-header">
-      <h2>🕵️ SQL Mystery</h2>
+      <h2>🕵️ SQL Side Quest</h2>
       <div className="case-title">{mystery.title}</div>
 
       {/* Progress */}

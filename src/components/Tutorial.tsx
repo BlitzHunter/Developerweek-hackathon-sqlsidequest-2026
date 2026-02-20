@@ -12,7 +12,7 @@ const STEPS: TutorialStep[] = [
     icon: '🕵️',
     title: 'Welcome, Detective',
     content:
-      'SQL Mystery is a detective game where you solve crimes by writing SQL queries. A crime has been committed — and the evidence is buried in a database. Your job is to find it.',
+      'SQL Side Quest is a detective game where you solve crimes by writing SQL queries. A crime has been committed — and the evidence is buried in a database. Your job is to find it.',
   },
   {
     icon: '📋',

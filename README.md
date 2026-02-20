@@ -1,6 +1,6 @@
-# SQL Mystery
+# SQL Side Quest
 
-An interactive detective game for [Miro](https://miro.com) that teaches SQL through mystery solving. Players write SQL queries against an in-browser SQLite database to uncover clues, reveal suspects, and close the case.
+An interactive detective game for [Miro](https://miro.com) that teaches SQL through mystery solving. Players write SQL queries against an in-browser SQLite database to uncover clues, reveal suspects, and close the case. Players write SQL queries against an in-browser SQLite database to uncover clues, reveal suspects, and close the case.
 
 ## Features
 
@@ -27,7 +27,7 @@ An interactive detective game for [Miro](https://miro.com) that teaches SQL thro
 
 ```bash
 git clone <your-repo-url>
-cd sql-mystery
+cd sql-side-quest
 npm install
 ```
 
@@ -77,7 +77,7 @@ npm run dev:full
 
 ### 6. Open a Miro board
 
-Open any Miro board and launch the **SQL Mystery** app from the toolbar.
+Open any Miro board and launch the **SQL Side Quest** app from the toolbar.
 
 ## Project Structure
 

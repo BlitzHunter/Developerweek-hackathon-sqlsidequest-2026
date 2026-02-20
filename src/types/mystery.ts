@@ -1,4 +1,4 @@
-// Type definitions for SQL Mystery game
+// Type definitions for SQL Side Quest game
 
 /**
  * Represents a single database table in the mystery

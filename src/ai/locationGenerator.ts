@@ -109,7 +109,7 @@ Requirements:
 - Title should be intriguing and match the theme (e.g., "The Phantom Transaction", "The Digital Heist")
 - 6 locations should be diverse and thematically appropriate
 - Each location name should be 2-4 words (e.g., "Corporate Office", "City Bank", "Downtown Bistro")
-- Locations should make sense for a SQL mystery game (places with databases/records)
+- Locations should make sense for a SQL side quest game (places with databases/records)
 
 IMPORTANT: Return ONLY valid JSON in this exact format, no markdown, no explanation:
 {

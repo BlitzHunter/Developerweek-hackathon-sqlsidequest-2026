@@ -5,7 +5,7 @@
  * if localStorage is unavailable (e.g., in sandboxed iframes).
  */
 
-const PREFIX = 'sql-mystery:';
+const PREFIX = 'sql-side-quest:';
 
 export function storageGet<T>(key: string, fallback: T): T {
   try {
@@ -34,7 +34,7 @@ export function storageRemove(key: string): void {
 }
 
 /**
- * Get the total size of all sql-mystery keys in localStorage (bytes).
+ * Get the total size of all sql-side-quest keys in localStorage (bytes).
  * Useful for debugging storage limits.
  */
 export function storageUsage(): number {

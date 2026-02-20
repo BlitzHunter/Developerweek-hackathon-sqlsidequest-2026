@@ -1,5 +1,5 @@
 {
-  "name": "sql-mystery",
+  "name": "sql-side-quest",
   "version": "0.1.0",
   "description": "Interactive SQL detective game for Miro — solve mysteries by writing SQL queries",
   "license": "MIT",
