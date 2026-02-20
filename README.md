@@ -1,6 +1,6 @@
 # SQL Side Quest
 
-An interactive detective game for [Miro](https://miro.com) that teaches SQL through mystery solving. Players write SQL queries against an in-browser SQLite database to uncover clues, reveal suspects, and close the case. Players write SQL queries against an in-browser SQLite database to uncover clues, reveal suspects, and close the case.
+An interactive detective game for [Miro](https://miro.com) that teaches SQL through mystery solving. Players write SQL queries against an in-browser SQLite database to uncover clues, reveal suspects, and close the case. 
 
 ## Features
 
