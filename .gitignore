@@ -21,4 +21,17 @@ yarn-error.log*
 
 # local env files
 .env
+*.local
+
+# build output
 dist
+
+# deployment
+.vercel
+
+# development docs
+_dev-docs/
+
+# AI/dev artifacts
+.claude/
+gemini-test-response.txt

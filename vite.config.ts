@@ -27,5 +27,19 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
+    // Proxy /api requests to a local Express dev server if running,
+    // otherwise the fetch will fail gracefully and use static fallbacks
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        // Don't error out if the dev API server isn't running
+        configure: (proxy) => {
+          proxy.on('error', () => {
+            // Silently ignore — the app handles fetch failures gracefully
+          });
+        },
+      },
+    },
   },
 });

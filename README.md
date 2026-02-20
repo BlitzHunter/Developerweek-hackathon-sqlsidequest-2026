@@ -1,52 +1,105 @@
-##   Template
+# SQL Mystery
 
-**&nbsp;ℹ&nbsp;Note**:
+An interactive detective game for [Miro](https://miro.com) that teaches SQL through mystery solving. Players write SQL queries against an in-browser SQLite database to uncover clues, reveal suspects, and close the case.
 
-- We recommend a Chromium-based web browser for local development with HTTP. \
-  Safari enforces HTTPS; therefore, it doesn't allow localhost through HTTP.
-- For more information, visit our [developer documentation](https://developers.miro.com).
+## Features
 
-### How to start locally
+- **In-browser SQL engine** powered by [sql.js](https://github.com/sql-js/sql.js) (SQLite compiled to WebAssembly)
+- **Interactive Miro board** with cinematic reveal sequences — camera pans, evidence webs, red string connectors, and suspect card flips
+- **AI-generated mysteries** using Google Gemini for infinite replayability
+- **AI detective partner** that provides contextual, escalating hints
+- **AI image generation** using Gemini Imagen to visualize clues and evidence
+- **Text-to-speech** narration via ElevenLabs API
+- **Anti-tampering system** that detects destructive SQL and tracks integrity strikes
+- **Multiple difficulty levels** from beginner JOINs to advanced CTEs and window functions
+- **Game state persistence** via localStorage for resuming investigations
+- **Fallback mysteries** so the game works even without an API key
 
-- Run `npm i` to install dependencies.
-- Run `npm start` to start developing. \
-  Your URL should be similar to this example:
- ```
- http://localhost:3000
- ```
-- Paste the URL under **App URL** in your
-  [app settings](https://developers.miro.com/docs/build-your-first-hello-world-app#step-3-configure-your-app-in-miro).
-- Open a board; you should see your app in the app toolbar or in the **Apps**
-  panel.
+## Prerequisites
 
-### How to build the app
+- [Node.js](https://nodejs.org/) v16+
+- A [Miro developer account](https://developers.miro.com/) with a registered app
+- A [Google Gemini API key](https://aistudio.google.com/app/apikey) *(optional — fallback mysteries are built-in)*
 
-- Run `npm run build`. \
-  This generates a static output inside [`dist/`](./dist), which you can host on a static hosting
-  service.
+## Local Setup
 
-### Folder structure
+### 1. Clone and install dependencies
 
-<!-- The following tree structure is just an example -->
-
-```
-.
-├── src
-│  ├── assets
-│  │  └── style.css
-│  ├── app.tsx      // The code for the app lives here
-│  └── index.ts    // The code for the app entry point lives here
-├── app.html       // The app itself. It's loaded on the board inside the 'appContainer'
-└── index.html     // The app entry point. This is what you specify in the 'App URL' box in the Miro app settings
+```bash
+git clone <your-repo-url>
+cd sql-mystery
+npm install
 ```
 
-### About the app
+### 2. Copy the WebAssembly file
 
-This sample app provides you with boilerplate setup and configuration that you can further customize to build your own app.
+```bash
+cp node_modules/sql.js/dist/sql-wasm.wasm public/
+```
 
-<!-- describe shortly the purpose of the sample app -->
+> On Windows (PowerShell):
+> ```powershell
+> Copy-Item node_modules/sql.js/dist/sql-wasm.wasm public/
+> ```
 
-Built using [`create-miro-app`](https://www.npmjs.com/package/create-miro-app).
+### 3. Configure environment variables
 
-This app uses [Vite](https://vitejs.dev/). \
-If you want to modify the `vite.config.js` configuration, see the [Vite documentation](https://vitejs.dev/guide/).
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and fill in your values:
+
+| Variable | Required | Description |
+|---|---|---|
+| `VITE_MIRO_APP_ID` | Yes | Your Miro app ID |
+| `GEMINI_API_KEY` | Optional | Enables AI mystery generation and hints |
+| `ELEVENLABS_API_KEY` | Optional | Enables text-to-speech narration |
+| `VITE_RAIN_BG_URL` | Optional | Public URL for rain background GIF |
+| `VITE_CORK_IMAGE_URL` | Optional | Public URL for cork board image |
+
+### 4. Configure your Miro app
+
+1. Go to the [Miro Developer Portal](https://miro.com/app/settings/user-profile/apps)
+2. Set **App URL** to `http://localhost:3000`
+3. Set **SDK URI** to `/app.html`
+4. Enable `boards:read` and `boards:write` permissions
+
+### 5. Start the development server
+
+```bash
+# Frontend only (uses built-in fallback mysteries)
+npm run dev
+
+# Frontend + AI API server (enables Gemini mystery generation and hints)
+npm run dev:full
+```
+
+### 6. Open a Miro board
+
+Open any Miro board and launch the **SQL Mystery** app from the toolbar.
+
+## Project Structure
+
+```
+src/
+  app.tsx              # Root React component
+  components/          # React UI components
+  engine/              # SQL engine, game state, validation, tamper detection
+  board/               # Miro board layout, choreography, item helpers
+  ai/                  # LLM integration (mystery generation, hints, prompts)
+  data/                # Sample and fallback mystery data
+  types/               # TypeScript type definitions
+  utils/               # Helpers (sleep, storage, imageLoader)
+api/
+  generate.ts          # Mystery generation endpoint
+  hint.ts              # Hint generation endpoint
+  dev-server.ts        # Local dev API server
+public/
+  image/               # Images loaded onto the board
+  gif/                 # Animated GIFs for ambient effects
+```
+
+## License
+
+MIT
